@@ -36,7 +36,7 @@ class Sine extends Component {
       }}>
         <h3>freq</h3>
 
-        <Slider name="freq" min={20} max={1000} step={0.1} value={freq}
+        <Slider name="freq" min={200} max={500} step={0.1} value={freq}
                onChange={v => this.updateParam('freq', v)}  />
         {freq}Hz
         <br/>
