@@ -27,31 +27,41 @@ class Sine extends Component {
     const obj = {};
     obj[param] = val;
     this.setState(obj);
-    this.sine.update(param, val)
+    this._sine.update(param, val)
   }
 
   render() {
     const {freq, pan, amp} = this.state;
+    let panWord = '';
+
+    if (pan === -1){
+      panWord = '(full left)'
+    } else if (pan === 1) {
+      panWord = '(full right)'
+    } else if (pan === 0) {
+      panWord = '(center)'
+    }
 
     return (
       <div className="sine" style={{
-        padding: 10,
+        margin: "0 auto",
         width: "40%",
+        padding: 5,
       }}>
-        <h3>freq</h3>
+        <h3>Freq</h3>
 
         <Slider name="freq" min={200} max={500} step={0.1} value={freq}
                onChange={v => this._updateParam('freq', v)}  />
         {freq}Hz
         <br/>
 
-        <h3>pan</h3>
+        <h3>Pan{panWord}</h3>
         <Slider name="pan" min={-1} max={1} step={0.02} value={pan}
                 onChange={v => this._updateParam('pan', v)} />
         {pan}
         <br/>
 
-        <h3>amp</h3>
+        <h3>Gain</h3>
         <Slider name="amp" min={0} max={1} step={0.02} value={amp}
                 onChange={v => this._updateParam('amp', v)} />
         {amp}
@@ -60,28 +70,23 @@ class Sine extends Component {
   }
 }
 
+const Explorer = () => {
+  return (<div>
+    <div style={{
+      display: "flex",
+      flexDirection: "row",
+    }}>
+      <Sine freq={435} pan={-1} amp={0.5} />
+      <Sine freq={442} pan={1} amp={0.5} />
+    </div>
+  </div>)
+}
+
 class App extends Component {
   render() {
     return (
-      <div className="App">
-
-        <div style={{
-          textAlign: "center",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-evenly",
-        }}>
-          <h2>Left</h2>
-          <h2>Right</h2>
-        </div>
-
-        <div style={{
-          display: "flex",
-          flexDirection: "row",
-        }}>
-          <Sine freq={440} pan={-1} amp={0.5} />
-          <Sine freq={442} pan={1} amp={0.5} />
-        </div>
+      <div className="App" style={{padding: 20}}>
+        <Explorer/>
       </div>
     );
   }
