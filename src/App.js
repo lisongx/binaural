@@ -15,11 +15,15 @@ class Sine extends Component {
       pan: props.pan || 0,
       amp: props.amp || 0.2,
     };
-    this.updateParam = this.updateParam.bind(this);
-    this.sine = audio.addSine(this.state);
+    this._updateParam = this._updateParam.bind(this);
+    this._sine = audio.addSine(this.state);
   }
 
-  updateParam(param, val) {
+  componentDidMount() {
+    this._sine.start();
+  }
+
+  _updateParam(param, val) {
     const obj = {};
     obj[param] = val;
     this.setState(obj);
@@ -37,19 +41,19 @@ class Sine extends Component {
         <h3>freq</h3>
 
         <Slider name="freq" min={200} max={500} step={0.1} value={freq}
-               onChange={v => this.updateParam('freq', v)}  />
+               onChange={v => this._updateParam('freq', v)}  />
         {freq}Hz
         <br/>
 
         <h3>pan</h3>
         <Slider name="pan" min={-1} max={1} step={0.02} value={pan}
-                onChange={v => this.updateParam('pan', v)} />
+                onChange={v => this._updateParam('pan', v)} />
         {pan}
         <br/>
 
         <h3>amp</h3>
         <Slider name="amp" min={0} max={1} step={0.02} value={amp}
-                onChange={v => this.updateParam('amp', v)} />
+                onChange={v => this._updateParam('amp', v)} />
         {amp}
       </div>
     );

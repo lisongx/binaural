@@ -1,6 +1,3 @@
-import StereoPannerNode from "stereo-panner-node";
-
-StereoPannerNode.polyfill();
 
 class SineOsc {
   constructor(ctx, freq, pan, amp) {
@@ -13,6 +10,9 @@ class SineOsc {
     this._gain.gain.setValueAtTime(amp, this._ctx.currentTime);
     this._panner.pan.value = pan;
     this._connectGraph();
+  }
+
+  start() {
     this._osc.start();
   }
 
