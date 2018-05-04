@@ -82,10 +82,18 @@ const Explorer = () => {
   </div>)
 }
 
+const Header = () => {
+  return (<section>
+    <h1>Binaural Beats</h1>
+  </section>)
+}
+
+
 class App extends Component {
   render() {
     return (
       <div className="App" style={{padding: 20}}>
+        <Header/>
         <Explorer/>
       </div>
     );
