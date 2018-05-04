@@ -1,3 +1,7 @@
+import StereoPannerNode from "stereo-panner-node";
+
+StereoPannerNode.polyfill();
+
 class SineOsc {
   constructor(ctx, freq, pan, amp) {
     this._ctx = ctx;
