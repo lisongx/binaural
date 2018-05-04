@@ -61,7 +61,7 @@ class SineOsc {
 
 class AudioManager {
   constructor() {
-    this._ctx = new window.AudioContext();
+    this._ctx = new (window.AudioContext || window.webkitAudioContext)();
   }
 
   addSine({freq, pan, amp}) {
