@@ -26,6 +26,12 @@ class SineOsc {
     this._osc.stop();
   }
 
+  resume() {
+    if (this._ctx.state === "suspended") {
+      this._ctx.resume();
+    }
+  }
+
   update(param, val) {
     // TODO: any more clever way of writing this?
     if (param === 'freq') {
@@ -35,6 +41,7 @@ class SineOsc {
     } else if (param === 'amp') {
       this.amp = val;
     }
+    this.resume();
   }
 
   get freq() {
@@ -65,11 +72,11 @@ class SineOsc {
 
 class AudioManager {
   constructor() {
-    this._ctx = new (window.AudioContext || window.webkitAudioContext)();
+    this.ctx = new (window.AudioContext || window.webkitAudioContext)();
   }
 
   addSine({freq, pan, amp}) {
-    const sine = new SineOsc(this._ctx, freq, pan, amp);
+    const sine = new SineOsc(this.ctx, freq, pan, amp);
     return sine;
   }
 }
