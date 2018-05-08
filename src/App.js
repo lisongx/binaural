@@ -3,6 +3,7 @@ import Slider from 'rc-slider'
 import AudioManager from './audio'
 
 import Header from './header'
+import Footer from './footer'
 
 import './App.css';
 import 'rc-slider/assets/index.css'
@@ -91,6 +92,7 @@ class App extends Component {
       <div className="App">
         <Header/>
         <Explorer/>
+        <Footer/>
       </div>
     );
   }

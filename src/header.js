@@ -20,7 +20,6 @@ class Ear extends PureComponent {
   }
 }
 
-
 const headerBgColor = "#902626";
 
 const Header = () => {
