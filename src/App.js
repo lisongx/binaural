@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-import Slider from 'rc-slider';
-import AudioManager from './audio';
+import React, { Component } from 'react'
+import Slider from 'rc-slider'
+import AudioManager from './audio'
+
+import Header from './header'
 
 import './App.css';
-import 'rc-slider/assets/index.css';
+import 'rc-slider/assets/index.css'
 
-const audio = new AudioManager();
+const audio = new AudioManager()
 
 class Sine extends Component {
   constructor(props) {
@@ -82,17 +84,11 @@ const Explorer = () => {
   </div>)
 }
 
-const Header = () => {
-  return (<section>
-    <h1>Binaural Beats</h1>
-  </section>)
-}
-
 
 class App extends Component {
   render() {
     return (
-      <div className="App" style={{padding: 20}}>
+      <div className="App">
         <Header/>
         <Explorer/>
       </div>
