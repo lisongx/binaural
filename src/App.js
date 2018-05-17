@@ -79,8 +79,9 @@ const Explorer = () => {
       display: "flex",
       flexDirection: "row",
     }}>
-      <Sine freq={435} pan={-1} amp={0.5} />
-      <Sine freq={442} pan={1} amp={0.5} />
+      <h2>Working in progress, please come back later!</h2>
+      <Sine freq={400} pan={-1} amp={0.5} />
+      <Sine freq={406} pan={1} amp={0.5} />
     </div>
   </div>)
 }
