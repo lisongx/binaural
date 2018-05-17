@@ -75,11 +75,11 @@ class Sine extends Component {
 
 const Explorer = () => {
   return (<div>
+    <h2 style={{textAlign: "center"}}>Work in progress, please come back later!</h2>
     <div style={{
       display: "flex",
       flexDirection: "row",
     }}>
-      <h2>Working in progress, please come back later!</h2>
       <Sine freq={400} pan={-1} amp={0.5} />
       <Sine freq={406} pan={1} amp={0.5} />
     </div>
