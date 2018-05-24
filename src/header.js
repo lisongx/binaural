@@ -50,7 +50,7 @@ const Header = () => {
         <Ear direction="right" size={"4em"} />
       </div>
 
-      <h2>An interactive Guide</h2>
+//       <h2>An interactive Guide</h2>
       <h3>
         By <a href="http://notimportant.org/" style={{
           color: "yellow",
