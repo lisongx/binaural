@@ -5,10 +5,8 @@ import AudioManager from './audio'
 import Header from './header'
 import Footer from './footer'
 
-import './App.css';
 import 'rc-slider/assets/index.css'
-
-const audio = new AudioManager()
+import './App.css';
 
 class Sine extends Component {
   constructor(props) {
@@ -53,8 +51,8 @@ class Sine extends Component {
       }}>
         <h3>Freq</h3>
 
-        <Slider name="freq" min={200} max={500} step={0.1} value={freq}
-               onChange={v => this._updateParam('freq', v)}  />
+        <Slider name="freq" min={50} max={500} step={0.1} value={freq}
+                onChange={v => this._updateParam('freq', v)}  />
         {freq}Hz
         <br/>
 
@@ -73,19 +71,40 @@ class Sine extends Component {
   }
 }
 
-const Explorer = () => {
-  return (<div>
-    <h2 style={{textAlign: "center"}}>Work in progress, please come back later!</h2>
-    <div style={{
-      display: "flex",
-      flexDirection: "row",
-    }}>
-      <Sine freq={400} pan={-1} amp={0.5} />
-      <Sine freq={406} pan={1} amp={0.5} />
-    </div>
-  </div>)
-}
+const audio = new AudioManager();
 
+class Explorer extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    audio.start();
+    // audio.fadeIn();
+
+    window.addEventListener("beforeunload", function (event) {
+      // not working maybe?
+      audio.fadeOut();
+      var confirmationMessage = "^^^^^^^";
+      event.returnValue = confirmationMessage;
+      return confirmationMessage;
+    });
+  }
+
+  render() {
+    return (<div style={{marginBottom: 50}}>
+      <h2 style={{textAlign: "center"}}>Work in progress, please come back later!</h2>
+      <div style={{
+        display: "flex",
+        flexDirection: "row",
+      }}>
+        <Sine freq={400} pan={-1} amp={0.3} />
+        <Sine freq={406} pan={1} amp={0.3} />
+      </div>
+    </div>)
+  }
+}
 
 class App extends Component {
   render() {

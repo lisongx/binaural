@@ -7,3 +7,12 @@
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
+
+
+.rc-slider-handle {
+  border: 4px solid rgb(144, 38, 38);
+}
+
+.rc-slider-track {
+  background-color: rgb(144, 38, 38);
+}
