@@ -80,21 +80,21 @@ class Explorer extends Component {
   }
 
   componentDidMount() {
-    audio.start();
-    // audio.fadeIn();
-
-    window.addEventListener("beforeunload", function (event) {
-      // not working maybe?
-      audio.fadeOut();
-      var confirmationMessage = "^^^^^^^";
-      event.returnValue = confirmationMessage;
-      return confirmationMessage;
-    });
   }
 
   render() {
     return (<div style={{marginBottom: 50}}>
       <h2 style={{textAlign: "center"}}>Work in progress, please come back later!</h2>
+
+      <div style={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+      }}>
+        <button style={{fontSize: 20}} onClick={() => audio.start() }>Start</button>
+        <button style={{fontSize: 20}} onClick={() => audio.fadeOut() }>Stop</button>
+      </div>
+
       <div style={{
         display: "flex",
         flexDirection: "row",
