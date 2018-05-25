@@ -1,6 +1,6 @@
 
 class SineOsc {
-  constructor(ctx, freq, pan, amp) {
+  constructor(ctx, freq, pan, amp, outputNode) {
     this._ctx = ctx;
     this._osc = this._ctx.createOscillator();
     this._panner = this._ctx.createStereoPanner();
@@ -9,6 +9,7 @@ class SineOsc {
     this._gain = this._ctx.createGain();
     this._gain.gain.setValueAtTime(amp, this._ctx.currentTime);
     this._panner.pan.value = pan;
+    this._output = outputNode;
     this._connectGraph();
   }
 
@@ -19,7 +20,7 @@ class SineOsc {
   _connectGraph() {
     this._osc.connect(this._panner);
     this._panner.connect(this._gain);
-    this._gain.connect(this._ctx.destination);
+    this._gain.connect(this._output);
   }
 
   stop() {
@@ -69,14 +70,38 @@ class SineOsc {
   }
 }
 
-
 class AudioManager {
+
   constructor() {
     this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+    this._masterGain = this.ctx.createGain();
+    this._masterGain.gain.setValueAtTime(0, this.ctx.currentTime);
+    this._fadeDur = 1;
+  }
+
+  _connectGraph() {
+    this._masterGain.connect(this.ctx.destination);
+  }
+
+  start() {
+    this._connectGraph();
+  }
+
+  _rampTo(amp, dur) {
+    this._masterGain.gain.exponentialRampToValueAtTime(
+      amp, this.ctx.currentTime + dur);
+  }
+
+  fadeIn() {
+    this._rampTo(1.0, this._fadeDur);
+  }
+
+  fadeOut() {
+    this._rampTo(0, this._fadeDur);
   }
 
   addSine({freq, pan, amp}) {
-    const sine = new SineOsc(this.ctx, freq, pan, amp);
+    const sine = new SineOsc(this.ctx, freq, pan, amp, this._masterGain);
     return sine;
   }
 }
