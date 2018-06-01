@@ -8,7 +8,7 @@
 // TODO: 是否需要解释什么是正弦波
 当人的两只耳朵分别听到纯音正弦波(左右耳各一个)，且两者频率均低于1500Hz、两者的频率之差小于30Hz时：人会听到双耳节拍（**英语**：Binaural beats）。\[来源请求\]
 
-[var name:"freqL" value:400 /]
+[var name:"freqL" value:415 /]
 [var name:"freqR" value:410 /]
 [derived name:"freqBeat" value:`Math.abs(freqL - freqR)`/]
 
