@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "idyll-components": "^2.8.3",
+    "idyll-document": "^2.10.6",
     "lodash": "^4.17.10",
     "rc-slider": "^8.6.1",
     "react": "^16.3.2",
@@ -16,5 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
   }
 }

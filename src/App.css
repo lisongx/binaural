@@ -16,3 +16,10 @@
 .rc-slider-track {
   background-color: rgb(144, 38, 38);
 }
+
+.idyll-dynamic {
+  color: rgb(144, 38, 38);
+  text-decoration: none;
+  border-bottom: 2px solid rgb(144, 38, 38);
+  border-bottom-style: dotted;
+}
