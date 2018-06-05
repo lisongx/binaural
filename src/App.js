@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import Slider from 'rc-slider'
 import AudioManager from './audio'
 
-import Header from './header'
-import Footer from './footer'
+import Header from './header';
+import Footer from './footer';
+import Doc from './doc';
 
 import 'rc-slider/assets/index.css'
+import './idyll.css';
 import './App.css';
 
 class Sine extends Component {
@@ -84,7 +86,6 @@ class Explorer extends Component {
 
   render() {
     return (<div style={{marginBottom: 50}}>
-      <h2 style={{textAlign: "center"}}>Work in progress, please come back later!</h2>
 
       <div style={{
         display: "flex",
@@ -111,6 +112,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
+        <h2 style={{textAlign: "center"}}>Work in progress, please come back later!</h2>
         <Explorer/>
         <Footer/>
       </div>
@@ -118,4 +120,18 @@ class App extends Component {
   }
 }
 
+class Article extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Header/>
+        <h2 style={{textAlign: "center"}}>Work in progress, please come back later!</h2>
+        <Doc/>
+        <Footer/>
+      </div>
+    );
+  }
+}
+
 export default App;
+export { Article };
