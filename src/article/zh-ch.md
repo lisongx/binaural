@@ -27,15 +27,3 @@
 ## 其他章节2
 
 ## 参考文献
-
-Binaural beats therapy stimulates long life and wellbeing hormones
-
-Chaieb, L., Wilpert, E. C., Reber, T. P., & Fell, J. (2015, May 12). Auditory beat stimulation and its effects on cognition and mood states. Frontiers in psychiatry
-
-How to use binaural beats to get the most benefits
-
-Lane, J. D., Kasian, S. J., Owens, J. E., & Marsh, G. R. (1998, January). Binaural auditory beats affect vigilance performance and mood \[Abstract\]. Physiology & Behaviour
-
-Padmanabhan, R., Hildreth, A. J., & Laws, D. (2005, July 7). A prospective, randomised, controlled study examining binaural beat audio and pre‐operative anxiety in patients undergoing general anaesthesia for day case surgery. Anaesthesia
-
-Wahbeh, H., Calabrese, C., & Zwickey, H. (2007, February 19). Binaural beat technology in humans: A pilot study to assess psychologic and physiologic effects. The Journal of Alternative and Complementary Medicine
